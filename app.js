@@ -4,29 +4,42 @@ var express = require("express"),
   mongoose = require("mongoose"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
-  flash= require('connect-flash'),
+  flash = require("connect-flash"),
   Campground = require("./models/campground"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
-  methodOverride = require("method-override")
-  seedDB = require("./seeds");
+  methodOverride = require("method-override");
+seedDB = require("./seeds");
 
+//REQUIRING ROUTES
+var commentRoutes = require("./routes/comments"),
+  campgroundRoutes = require("./routes/campgrounds"),
+  indexRoutes = require("./routes/index");
 
-//REQUIRING ROUTES    
- var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index");
-
-mongoose.connect("mongodb://localhost:27017/yelpCamp", {
-  useNewUrlParser: true,
-});
+// mongoose.connect("mongodb://localhost:27017/yelpCamp", {
+//   useNewUrlParser: true,
+// });
+mongoose
+  .connect(
+    "mongodb+srv://aman_n_s:Amantechbook2000@techbook-ig0xq.mongodb.net/test",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    }
+  )
+  .then(() => {
+    console.log("Connected to DB!");
+  })
+  .catch((err) => {
+    console.log("ERROR:", err.message);
+  });
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-app.locals.moment = require('moment');
+app.locals.moment = require("moment");
 // seedDB();
 
 //PASSPORT CONFIG
@@ -50,9 +63,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use( indexRoutes)
-app.use("/campgrounds",campgroundRoutes)
-app.use("/campgrounds/:id/comments", commentRoutes)
+app.use(indexRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(5000, process.env.IP, function () {
   console.log("Server started");
