@@ -22,7 +22,7 @@ var commentRoutes = require("./routes/comments"),
 
 mongoose
   .connect(
-    "mongodb+srv://aman_n_s:Amantechbook2000@techbook-ig0xq.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongodb+srv://aman_n_s:Amantechbook2000@techbook-ig0xq.mongodb.net/yelpCamp?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useCreateIndex: true,
