@@ -10,7 +10,7 @@ middlewareObj.checkCampgroundOwnership = function (req, res, next) {
         res.redirect("back");
       } else {
         //does user own the campground
-        if (foundCampground.author.id.equals(req.user._id) || req.user.isAdmin) {
+        if (foundCampground.author.id.equals(req.user._id) || (req.user && req.user.isAdmin)) {
           next();
         } else {
           req.flash("error", "You're not authorized to perform this action!")
@@ -32,7 +32,7 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
         res.redirect("back");
       } else {
         //does user own the campground
-        if (foundComment.author.id.equals(req.user._id)|| req.user.isAdmin) {
+        if (foundComment.author.id.equals(req.user._id)||  (req.user && req.user.isAdmin)) {
           next();
         } else {
           req.flash("error", "You're not authorized to perform this action!")
@@ -47,7 +47,7 @@ middlewareObj.checkCommentOwnership = function (req, res, next) {
 };
 
 middlewareObj.isLoggedIn = function (req, res, next) {
-  if (req.isAuthenticated()|| req.user.isAdmin) {
+  if (req.isAuthenticated()||  (req.user && req.user.isAdmin)) {
     return next();
   }
   req.flash("error", "You need to be logged in to do that!")
