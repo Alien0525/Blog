@@ -19,9 +19,10 @@ var commentRoutes = require("./routes/comments"),
 // mongoose.connect("mongodb://localhost:27017/yelpCamp", {
 //   useNewUrlParser: true,
 // });
+
 mongoose
   .connect(
-    "mongodb+srv://aman_n_s:Amantechbook2000@techbook-ig0xq.mongodb.net/test",
+    "mongodb+srv://aman_n_s:Amantechbook2000@techbook-ig0xq.mongodb.net/<dbname>?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useCreateIndex: true,
