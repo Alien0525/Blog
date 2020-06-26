@@ -43,7 +43,7 @@
                           <a class="btn btn-sm btn-warning" 
                              href="/campgrounds/<%=campground._id %>/comments/<%=comment._id %>/edit"><i class="fas fa-edit"></i></a>
                           <form id="delete-form" action="/campgrounds/<%=campground._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
-                              <button type="button" class="btn btn-danger btn-sm "><i class="fas fa-trash"></i></button>
+                              <button type="submit" class="btn btn-danger btn-sm "><i class="fas fa-trash"></i></button>
                           </form>
                       <% } %>
                       <hr style="margin-right: 1.5rem; margin-bottom: 0rem; border-top: 0.2px solid grey;">
