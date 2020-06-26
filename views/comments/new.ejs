@@ -1,28 +1,19 @@
 <%- include ("../partials/header") %>
 
-
-    <h1 style="text-align: center; padding: 2rem;">Add New Comment to <%= campground.name%></h1>
-
-    <div class="row">
-        
-        <div style="width: 30%; margin: 0 auto;">
-            <form action="/campgrounds/<%= campground._id%>/comments" method="POST" >
-                <div class="form-group">
-                    <textarea class="form-control" type="text" name="comment[text]" placeholder="text"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
-                </div>
-                
-            </form>
-        </div>
-        
-
-        
+    <div  class="login">
+        <form class="form-signin"  action="/campgrounds/<%= campground._id%>/comments" method="POST" >
+            <div class="text-center mb-4">
+              <h1 class="mb-3 font-weight-normal">Add New Comment to <%= campground.name%></h1>
+            </div>
+          
+            <div class="form-label-group">
+                <textarea class="form-control" type="text" name="comment[text]" placeholder="text"></textarea>
+            </div>
+          
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit!</button><hr>
+            <hr style="background-color: rgb(139, 133, 133); width: 70%;">
+            <p class="mt-4 mb-3 text-muted text-center">&copy; techbook 2020</p>
+        </form>
     </div>
     
-
-
-
 <%- include ("../partials/footer") %>

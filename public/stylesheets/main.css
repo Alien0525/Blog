@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Press+Start+2P&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 .delete-form {
   display: inline;
 }
@@ -35,8 +35,8 @@ body {
   margin-top: 10rem !important;
 }
 .footer p {
-  margin-top: 0.7rem;
-  font-size: 2rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .container .text-muted {
@@ -44,8 +44,7 @@ body {
 }
 
 .jumbo-heading {
-  font-family: "Sigmar One", cursive;
-  letter-spacing: 0.2px;
+  font-family: 'Roboto', sans-serif;
 }
 p,
 h3 {

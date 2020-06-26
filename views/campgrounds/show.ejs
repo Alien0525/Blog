@@ -29,26 +29,29 @@
               </div>
           <div class="card my-2">
               <div class="row justify-content-end mx-0 my-2">
-                  <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new" style="color:white;">Add New Comment</a>
+                  <a class="btn btn-success mx-2" href="/campgrounds/<%= campground._id %>/comments/new" style="color:white;">Add New Comment</a>
               </div>
               <% campground.comments.forEach(function(comment){ %>
                   <div class="row">
-                      <div class="col-md-12 mx-2">
+                      <div class="col-md-12 m-2">
                           <strong><%= comment.author.username %></strong>
-                          <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+                          <span class="float-right mr-4"><%= moment(comment.createdAt).fromNow() %></span>
                           <p class="mx-2 my-0">
                               <%= comment.text %> 
-                          </p>
+                        </p>
                       <% if(currentUser && comment.author.id.equals(currentUser._id)|| (currentUser && currentUser.isAdmin)){ %>
                           <a class="btn btn-sm btn-warning" 
                              href="/campgrounds/<%=campground._id %>/comments/<%=comment._id %>/edit"><i class="fas fa-edit"></i></a>
                           <form id="delete-form" action="/campgrounds/<%=campground._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
-                              <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                              <button type="button" class="btn btn-danger btn-sm "><i class="fas fa-trash"></i></button>
                           </form>
                       <% } %>
+                      <hr style="margin-right: 1.5rem; margin-bottom: 0rem; border-top: 1px solid grey;">
+
                       </div>
                     </div>
               <% }) %>
+              
           </div>
       </div>
   </div>
