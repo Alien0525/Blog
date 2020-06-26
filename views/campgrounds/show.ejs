@@ -6,9 +6,9 @@
          
       </div>
       <div class="col-md-9">
-          <div class="card">
+          <div class="card p-2">
               <img class="card-img-top" src="<%= campground.image %>" alt="">
-              <div class="card-title">
+              <div class="card-title my-2">
                 <h4><a><%=campground.name%></a></h4>
               </div>
                 <p class="card-text"><%= campground.description %></p>
@@ -36,7 +36,7 @@
                       <div class="col-md-12 mx-2">
                           <strong><%= comment.author.username %></strong>
                           <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
-                          <p class=" mx-2 my-0">
+                          <p class="mx-2 my-0">
                               <%= comment.text %> 
                           </p>
                       <% if(currentUser && comment.author.id.equals(currentUser._id)|| (currentUser && currentUser.isAdmin)){ %>
